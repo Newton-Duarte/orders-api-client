@@ -1,3 +1,4 @@
+import { Counter } from '@/features/counter/counter'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 
 export default async function Home({
@@ -8,5 +9,10 @@ export default async function Home({
   const { lang } = await params
   const dict = await getDictionary(lang)
 
-  return <h1>{dict.landing.welcome}</h1>
+  return (
+    <div>
+      <h1>{dict.landing.welcome}</h1>
+      <Counter dictionary={dict.counter} />
+    </div>
+  )
 }

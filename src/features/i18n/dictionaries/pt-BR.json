@@ -1,5 +1,9 @@
 {
   "landing": {
     "welcome": "Bem vindo!"
+  },
+  "counter": {
+    "decrement": "Diminuir",
+    "increment": "Aumentar"
   }
 }
