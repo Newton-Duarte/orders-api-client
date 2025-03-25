@@ -18,7 +18,7 @@ export default async function RootLayout({
   children: ReactNode
   params: Promise<{ lang: string }>
 }) {
-  const { lang = 'en-US' } = await params
+  const { lang = i18n.defaultLocale } = await params
 
   return (
     <html lang={lang} suppressHydrationWarning>
