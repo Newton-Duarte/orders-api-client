@@ -2,8 +2,8 @@
   "landing": {
     "welcome": "Welcome"
   },
-  "counter": {
-    "decrement": "Decrement",
-    "increment": "Increment"
+  "footer": {
+    "copyright": "Newton Duarte. All rights reserved.",
+    "madeWith": "Made with Next.js and TailwindCSS"
   }
 }
