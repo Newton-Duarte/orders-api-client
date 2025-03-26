@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+
 import { getDictionary } from '../i18n/get-dictionaries'
 
 export function Counter({
@@ -13,11 +14,11 @@ export function Counter({
   return (
     <div>
       This component is rendered on client:
-      <button onClick={() => setCount((prev) => prev - 1)}>
+      <button onClick={() => setCount((previous) => previous - 1)}>
         {dictionary.decrement}
       </button>
       {count}
-      <button onClick={() => setCount((prev) => prev + 1)}>
+      <button onClick={() => setCount((previous) => previous + 1)}>
         {dictionary.increment}
       </button>
     </div>

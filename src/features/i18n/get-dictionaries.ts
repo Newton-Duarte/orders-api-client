@@ -1,4 +1,5 @@
 import 'server-only'
+
 import { i18n } from './i18n-config'
 
 const dictionaries: Record<string, () => Promise<any>> = {
@@ -16,7 +17,7 @@ export const getDictionary = async (locale: string) => {
 
   try {
     return await dictionaries[validLocale]()
-  } catch (error) {
+  } catch {
     console.error(`Failed to load dictionary for locale: ${validLocale}`)
     // Fallback to default locale if the requested one fails
     return await dictionaries[i18n.defaultLocale]()

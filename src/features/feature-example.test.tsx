@@ -1,5 +1,6 @@
-import { render, screen } from '@/tests/react-test-utils'
 import { describe, expect, test } from 'vitest'
+
+import { render, screen } from '@/tests/react-test-utils'
 
 function MyReactComponent() {
   return <div>My React Component</div>

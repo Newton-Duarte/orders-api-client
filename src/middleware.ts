@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server'
+
 import { localizationMiddleware } from './features/i18n/localization-middleware'
 
 // Matcher ignoring `/_next/` and `/api/` and svg files.

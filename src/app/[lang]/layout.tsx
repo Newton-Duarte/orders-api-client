@@ -1,9 +1,11 @@
-import { ReactNode } from 'react'
-import { Inter } from 'next/font/google'
-import { i18n } from '@/features/i18n/i18n-config'
-import { Providers } from '../providers'
-
 import '../globals.css'
+
+import { Inter } from 'next/font/google'
+import { ReactNode } from 'react'
+
+import { i18n } from '@/features/i18n/i18n-config'
+
+import { Providers } from '../providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
