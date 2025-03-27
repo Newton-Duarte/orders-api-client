@@ -13,9 +13,7 @@ type SignInModulePropsProps = {
   dictionary: Awaited<ReturnType<typeof getDictionary>>['auth']
 }
 
-export default async function SignInModule({
-  dictionary,
-}: SignInModulePropsProps) {
+export async function SignInModule({ dictionary }: SignInModulePropsProps) {
   return (
     <main className="flex h-screen flex-col items-center justify-center p-4 sm:p-0">
       <Card className="min-w-full sm:min-w-md">
