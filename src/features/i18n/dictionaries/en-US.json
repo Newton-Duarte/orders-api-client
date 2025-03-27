@@ -2,6 +2,35 @@
   "header": {
     "app-name": "Java Shopping"
   },
+  "auth": {
+    "common": {
+      "full-name": "Full Name",
+      "full-name-placeholder": "John Doe",
+      "email": "Email",
+      "email-placeholder": "example@domain.com",
+      "password": "Password",
+      "password-placeholder": "********",
+      "confirm-password": "Confirm Password",
+      "sign-in": "Sign in",
+      "sign-up": "Sign up"
+    },
+    "sign-in": {
+      "title": "Welcome back",
+      "subtitle": "Enter your credentials to access your account",
+      "sign-up-cta": "Don't have an account?",
+      "demo-credentials": {
+        "title": "Demo credentials:",
+        "email": "admin@example.com",
+        "password": "admin@example"
+      }
+    },
+    "sign-up": {
+      "title": "Create an account",
+      "subtitle": "Enter your information to create your account",
+      "sign-in-cta": "Already have an account?",
+      "create-account": "Create account"
+    }
+  },
   "landing": {
     "welcome": "Welcome"
   },
