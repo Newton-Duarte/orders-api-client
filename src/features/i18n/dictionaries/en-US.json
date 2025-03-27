@@ -1,4 +1,7 @@
 {
+  "header": {
+    "app-name": "Java Shopping"
+  },
   "landing": {
     "welcome": "Welcome"
   },
