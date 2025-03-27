@@ -20,6 +20,7 @@ export function SignInForm({ dictionary }: SignInFormProps) {
           type="email"
           placeholder={dictionary.auth.common['email-placeholder']}
           className="h-10"
+          autoComplete="email"
         />
       </div>
       <div className="space-y-2">
@@ -29,6 +30,7 @@ export function SignInForm({ dictionary }: SignInFormProps) {
           type="password"
           placeholder={dictionary.auth.common['password-placeholder']}
           className="h-10"
+          autoComplete="current-password"
         />
       </div>
       <div className="flex flex-col gap-4">
