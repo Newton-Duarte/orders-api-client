@@ -9,7 +9,7 @@
       "email": "E-mail",
       "email-placeholder": "exemplo@domínio.com",
       "password": "Senha",
-      "password-placeholder": "********",
+      "password-placeholder": "••••••••",
       "confirm-password": "Confirme a senha",
       "sign-in": "Entrar",
       "sign-up": "Criar uma conta"
