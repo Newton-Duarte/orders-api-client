@@ -29,6 +29,11 @@ export async function SignInModule({ dictionary }: SignInModulePropsProps) {
           <SignInForm dictionary={dictionary} />
         </CardContent>
       </Card>
+      <div className="mt-4 text-center text-sm text-muted-foreground">
+        <p>{dictionary.auth['sign-in']['demo-credentials'].title}</p>
+        <p>{dictionary.auth['sign-in']['demo-credentials'].email}</p>
+        <p>{dictionary.auth['sign-in']['demo-credentials'].password}</p>
+      </div>
     </main>
   )
 }
