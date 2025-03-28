@@ -29,7 +29,6 @@ const signUpSchema = z
   })
 
 export async function signUpAction(
-  previousState: unknown,
   data: FormData
 ): Promise<SignUpActionResponse> {
   const result = signUpSchema.safeParse(Object.fromEntries(data))
