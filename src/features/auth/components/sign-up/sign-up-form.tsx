@@ -1,6 +1,9 @@
+'use client'
+
 import { LogIn } from 'lucide-react'
 import Link from 'next/link'
 
+import { signUpAction } from '@/app/[lang]/auth/sign-up/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -12,11 +15,12 @@ type SignUpFormProps = {
 
 export function SignUpForm({ dictionary }: SignUpFormProps) {
   return (
-    <form className="space-y-4">
+    <form action={signUpAction} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="full-name">{dictionary.auth.common['full-name']}</Label>
         <Input
           id="full-name"
+          name="full-name"
           placeholder={dictionary.auth.common['full-name-placeholder']}
           className="h-10"
         />
@@ -26,6 +30,7 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
         <Input
           id="email"
           type="email"
+          name="email"
           placeholder={dictionary.auth.common['email-placeholder']}
           className="h-10"
           autoComplete="email"
@@ -36,6 +41,7 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
         <Input
           id="password"
           type="password"
+          name="password"
           placeholder={dictionary.auth.common['password-placeholder']}
           className="h-10"
           autoComplete="new-password"
@@ -48,6 +54,7 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
         <Input
           id="confirm-password"
           type="password"
+          name="confirm-password"
           placeholder={dictionary.auth.common['password-placeholder']}
           className="h-10"
           autoComplete="new-password"
@@ -62,7 +69,7 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
           <p className="text-muted-foreground">
             {dictionary.auth['sign-up']['sign-in-cta']}
           </p>
-          <Link href="/sign-in" className="text-primary hover:underline">
+          <Link href="/auth/sign-in" className="text-primary hover:underline">
             {dictionary.auth.common['sign-in']}
           </Link>
         </div>
