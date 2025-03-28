@@ -21,6 +21,7 @@ module.exports = {
     'unicorn/no-array-callback-reference': 'off',
     'unicorn/no-array-for-each': 'off',
     'unicorn/no-array-reduce': 'off',
+    'unicorn/no-null': 'off',
     'import/no-unresolved': [
       'error',
       {
