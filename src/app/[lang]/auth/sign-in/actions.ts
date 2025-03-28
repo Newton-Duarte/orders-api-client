@@ -1,8 +1,10 @@
 'use server'
 
 import { HTTPError } from 'ky'
+import { cookies } from 'next/headers'
 import { z } from 'zod'
 
+import { AUTH_TOKEN_KEY } from '@/features/auth/constants'
 import { signInWithEmailAndPassword } from '@/http/sign-in-with-email-and-password'
 
 interface SignInActionResponse {
@@ -33,9 +35,15 @@ export async function signInAction(
   const { email, password } = result.data
 
   try {
-    const response = await signInWithEmailAndPassword({
+    const { token } = await signInWithEmailAndPassword({
       email,
       password,
+    })
+
+    const nextjsCookies = await cookies()
+    nextjsCookies.set(AUTH_TOKEN_KEY, token, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
     })
   } catch (error) {
     if (error instanceof HTTPError) {
