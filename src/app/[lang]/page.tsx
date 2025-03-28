@@ -1,5 +1,6 @@
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
+import { auth } from '@/features/auth/auth'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 
 export default async function Home({
@@ -10,11 +11,14 @@ export default async function Home({
   const { lang } = await params
   const dict = await getDictionary(lang)
 
+  const user = await auth()
+
   return (
     <>
       <Header lang={lang} dictionary={dict.header} />
       <main className="h-[calc(100vh-128px)] bg-background">
         <h1>{dict.landing.welcome}</h1>
+        <pre>{JSON.stringify(user, null, 2)}</pre>
       </main>
       <Footer dictionary={dict.footer} />
     </>
