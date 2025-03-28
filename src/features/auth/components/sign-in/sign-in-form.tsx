@@ -2,6 +2,7 @@
 
 import { AlertTriangle, Loader2, LogIn } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { signInAction } from '@/app/[lang]/auth/sign-in/actions'
 import { FieldError } from '@/components/common/form/field-error'
@@ -17,8 +18,12 @@ type SignInFormProps = {
 }
 
 export function SignInForm({ dictionary }: SignInFormProps) {
+  const router = useRouter()
+
   const [{ success, message, errors }, handleSubmit, isPending] =
-    useCustomFormState(signInAction)
+    useCustomFormState(signInAction, () => {
+      router.push('/')
+    })
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
