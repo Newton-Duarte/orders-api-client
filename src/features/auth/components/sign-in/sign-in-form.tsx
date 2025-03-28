@@ -1,6 +1,9 @@
+'use client'
+
 import { LogIn } from 'lucide-react'
 import Link from 'next/link'
 
+import { signInWithEmailAndPassword } from '@/app/[lang]/auth/sign-in/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -12,12 +15,13 @@ type SignInFormProps = {
 
 export function SignInForm({ dictionary }: SignInFormProps) {
   return (
-    <form className="space-y-4">
+    <form action={signInWithEmailAndPassword} className="space-y-4">
       <div className="space-y-2">
         <Label htmlFor="email">{dictionary.auth.common.email}</Label>
         <Input
           id="email"
           type="email"
+          name="email"
           placeholder={dictionary.auth.common['email-placeholder']}
           className="h-10"
           autoComplete="email"
@@ -28,6 +32,7 @@ export function SignInForm({ dictionary }: SignInFormProps) {
         <Input
           id="password"
           type="password"
+          name="password"
           placeholder={dictionary.auth.common['password-placeholder']}
           className="h-10"
           autoComplete="current-password"
@@ -42,7 +47,7 @@ export function SignInForm({ dictionary }: SignInFormProps) {
           <p className="text-muted-foreground">
             {dictionary.auth['sign-in']['sign-up-cta']}
           </p>
-          <Link href="/sign-up" className="text-primary hover:underline">
+          <Link href="/auth/sign-up" className="text-primary hover:underline">
             {dictionary.auth.common['sign-up']}
           </Link>
         </div>
