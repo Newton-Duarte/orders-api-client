@@ -1,9 +1,10 @@
 'use client'
 
-import { LogIn } from 'lucide-react'
+import { Loader2, LogIn } from 'lucide-react'
 import Link from 'next/link'
+import { useActionState } from 'react'
 
-import { signInWithEmailAndPassword } from '@/app/[lang]/auth/sign-in/actions'
+import { signInAction } from '@/app/[lang]/auth/sign-in/actions'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -14,8 +15,12 @@ type SignInFormProps = {
 }
 
 export function SignInForm({ dictionary }: SignInFormProps) {
+  // eslint-disable-next-line unicorn/no-null
+  const [state, formAction, isPending] = useActionState(signInAction, null)
+
   return (
-    <form action={signInWithEmailAndPassword} className="space-y-4">
+    <form action={formAction} className="space-y-4">
+      <h1 className="text-center text-sm font-bold text-primary">{state}</h1>
       <div className="space-y-2">
         <Label htmlFor="email">{dictionary.auth.common.email}</Label>
         <Input
@@ -39,9 +44,15 @@ export function SignInForm({ dictionary }: SignInFormProps) {
         />
       </div>
       <div className="flex flex-col gap-4">
-        <Button className="w-full" size="lg">
-          <LogIn />
-          {dictionary.auth.common['sign-in']}
+        <Button className="w-full" size="lg" disabled={isPending}>
+          {isPending ? (
+            <Loader2 className="size-4 animate-spin" />
+          ) : (
+            <>
+              <LogIn />
+              {dictionary.auth.common['sign-in']}
+            </>
+          )}
         </Button>
         <div className="flex items-center justify-center gap-1 text-sm">
           <p className="text-muted-foreground">
