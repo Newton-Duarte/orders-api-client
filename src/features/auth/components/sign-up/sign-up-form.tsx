@@ -1,10 +1,12 @@
 'use client'
 
-import { Loader2, LogIn, UserPlus } from 'lucide-react'
+import { AlertTriangle, Loader2, LogIn, UserPlus } from 'lucide-react'
 import Link from 'next/link'
 import { useActionState } from 'react'
 
 import { signUpAction } from '@/app/[lang]/auth/sign-up/actions'
+import { FieldError } from '@/components/common/form/field-error'
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -15,20 +17,35 @@ type SignUpFormProps = {
 }
 
 export function SignUpForm({ dictionary }: SignUpFormProps) {
-  // eslint-disable-next-line unicorn/no-null
-  const [state, formAction, isPending] = useActionState(signUpAction, null)
+  const [{ success, message, errors }, formAction, isPending] = useActionState(
+    signUpAction,
+    {
+      success: false,
+      message: null,
+      errors: null,
+    }
+  )
 
   return (
     <form action={formAction} className="space-y-4">
-      <h1 className="text-center text-sm font-bold text-primary">{state}</h1>
+      {!success && message && (
+        <Alert variant="destructive">
+          <AlertTriangle className="size-4" />
+          <AlertTitle>Sign in failed!</AlertTitle>
+          <AlertDescription>
+            <p>{message}</p>
+          </AlertDescription>
+        </Alert>
+      )}
       <div className="space-y-2">
-        <Label htmlFor="full-name">{dictionary.auth.common['full-name']}</Label>
+        <Label htmlFor="name">{dictionary.auth.common['full-name']}</Label>
         <Input
-          id="full-name"
-          name="full-name"
+          id="name"
+          name="name"
           placeholder={dictionary.auth.common['full-name-placeholder']}
           className="h-10"
         />
+        {errors?.name && <FieldError>{errors.name[0]}</FieldError>}
       </div>
       <div className="space-y-2">
         <Label htmlFor="email">{dictionary.auth.common.email}</Label>
@@ -40,6 +57,7 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
           className="h-10"
           autoComplete="email"
         />
+        {errors?.email && <FieldError>{errors.email[0]}</FieldError>}
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">{dictionary.auth.common.password}</Label>
@@ -51,19 +69,23 @@ export function SignUpForm({ dictionary }: SignUpFormProps) {
           className="h-10"
           autoComplete="new-password"
         />
+        {errors?.password && <FieldError>{errors.password[0]}</FieldError>}
       </div>
       <div className="space-y-2">
-        <Label htmlFor="confirm-password">
+        <Label htmlFor="confirmPassword">
           {dictionary.auth.common['confirm-password']}
         </Label>
         <Input
-          id="confirm-password"
+          id="confirmPassword"
           type="password"
-          name="confirm-password"
+          name="confirmPassword"
           placeholder={dictionary.auth.common['password-placeholder']}
           className="h-10"
           autoComplete="new-password"
         />
+        {errors?.confirmPassword && (
+          <FieldError>{errors.confirmPassword[0]}</FieldError>
+        )}
       </div>
       <div className="flex flex-col gap-4">
         <Button className="w-full" size="lg" disabled={isPending}>
