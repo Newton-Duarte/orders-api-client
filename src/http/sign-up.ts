@@ -11,7 +11,7 @@ interface SignUpResponse {
 
 export async function signUp({ name, email, password }: SignUpRequest) {
   await new Promise((resolve) => setTimeout(resolve, 2000))
-  const result = { token: 'Sign Up -> Sucesso' }
+  const result = { token: 'qweqwe213213123aczxcaseq3414' }
 
   // const result = await api
   //   .post('auth/sign-up', {

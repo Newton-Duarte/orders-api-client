@@ -1,8 +1,10 @@
 'use server'
 
 import { HTTPError } from 'ky'
+import { cookies } from 'next/headers'
 import { z } from 'zod'
 
+import { AUTH_TOKEN_KEY } from '@/features/auth/constants'
 import { signUp } from '@/http/sign-up'
 
 interface SignUpActionResponse {
@@ -44,13 +46,17 @@ export async function signUpAction(
   await new Promise((resolve) => setTimeout(resolve, 2000))
 
   try {
-    const response = await signUp({
+    const { token } = await signUp({
       name,
       email,
       password,
     })
 
-    return { success: true, message: 'Success', errors: null }
+    const nextjsCookies = await cookies()
+    nextjsCookies.set(AUTH_TOKEN_KEY, token, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+    })
   } catch (error) {
     if (error instanceof HTTPError) {
       const { message } = await error.response.json()
@@ -65,4 +71,6 @@ export async function signUpAction(
       errors: null,
     }
   }
+
+  return { success: true, message: 'Success', errors: null }
 }
