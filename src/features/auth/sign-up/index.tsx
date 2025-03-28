@@ -15,8 +15,8 @@ type SignUpModulePropsProps = {
 
 export async function SignUpModule({ dictionary }: SignUpModulePropsProps) {
   return (
-    <main className="flex h-screen flex-col items-center justify-center p-4 sm:p-0">
-      <Card className="min-w-full sm:min-w-md">
+    <>
+      <Card>
         <CardHeader className="p-4 text-center sm:p-6">
           <CardTitle className="text-2xl">
             {dictionary.auth['sign-up'].title}
@@ -29,6 +29,6 @@ export async function SignUpModule({ dictionary }: SignUpModulePropsProps) {
           <SignUpForm dictionary={dictionary} />
         </CardContent>
       </Card>
-    </main>
+    </>
   )
 }
