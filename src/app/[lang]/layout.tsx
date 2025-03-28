@@ -1,5 +1,6 @@
 import '../globals.css'
 
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
 
@@ -11,6 +12,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }))
+}
+
+export const metadata: Metadata = {
+  title: 'Java Shopping',
+  description: 'Java Shopping is front-end for the Java Shopping API',
 }
 
 export default async function RootLayout({
