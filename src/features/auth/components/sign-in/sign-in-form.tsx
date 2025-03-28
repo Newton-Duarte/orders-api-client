@@ -2,7 +2,6 @@
 
 import { AlertTriangle, Loader2, LogIn } from 'lucide-react'
 import Link from 'next/link'
-import { useActionState } from 'react'
 
 import { signInAction } from '@/app/[lang]/auth/sign-in/actions'
 import { FieldError } from '@/components/common/form/field-error'
@@ -11,23 +10,18 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
+import { useCustomFormState } from '@/hooks/use-custom-form-state'
 
 type SignInFormProps = {
   dictionary: Awaited<ReturnType<typeof getDictionary>>['auth']
 }
 
 export function SignInForm({ dictionary }: SignInFormProps) {
-  const [{ success, message, errors }, formAction, isPending] = useActionState(
-    signInAction,
-    {
-      success: false,
-      message: null,
-      errors: null,
-    }
-  )
+  const [{ success, message, errors }, handleSubmit, isPending] =
+    useCustomFormState(signInAction)
 
   return (
-    <form action={formAction} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
       {!success && message && (
         <Alert variant="destructive">
           <AlertTriangle className="size-4" />

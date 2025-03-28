@@ -20,7 +20,6 @@ const signInSchema = z.object({
 })
 
 export async function signInAction(
-  previousState: unknown,
   data: FormData
 ): Promise<SignInActionResponse> {
   const result = signInSchema.safeParse(Object.fromEntries(data))
