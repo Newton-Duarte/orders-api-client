@@ -1,4 +1,3 @@
-import { LanguageSwitcher } from '@/components/language-switcher'
 import {
   Card,
   CardContent,
@@ -11,14 +10,10 @@ import { getDictionary } from '@/features/i18n/get-dictionaries'
 import { SignInForm } from '../components/sign-in/sign-in-form'
 
 type SignInModulePropsProps = {
-  lang: string
   dictionary: Awaited<ReturnType<typeof getDictionary>>['auth']
 }
 
-export async function SignInModule({
-  lang,
-  dictionary,
-}: SignInModulePropsProps) {
+export async function SignInModule({ dictionary }: SignInModulePropsProps) {
   return (
     <>
       <Card>
@@ -38,9 +33,6 @@ export async function SignInModule({
         <p>{dictionary.auth['sign-in']['demo-credentials'].title}</p>
         <p>{dictionary.auth['sign-in']['demo-credentials'].email}</p>
         <p>{dictionary.auth['sign-in']['demo-credentials'].password}</p>
-      </div>
-      <div className="mt-4 text-center">
-        <LanguageSwitcher currentLocale={lang} dictionary={dictionary} />
       </div>
     </>
   )

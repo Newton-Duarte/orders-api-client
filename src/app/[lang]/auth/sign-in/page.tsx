@@ -5,5 +5,5 @@ export default async function SignInPage({ params }: NextLangParams) {
   const { lang } = await params
   const dict = await getDictionary(lang)
 
-  return <SignInModule lang={lang} dictionary={dict} />
+  return <SignInModule dictionary={dict} />
 }
