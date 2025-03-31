@@ -2,7 +2,7 @@ import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { type NextRequest, NextResponse } from 'next/server'
 
-import { i18n } from './i18n-config'
+import { i18n, pathnameHasLocale } from './i18n-config'
 
 function getLocale(request: NextRequest) {
   const headers = {
@@ -14,14 +14,11 @@ function getLocale(request: NextRequest) {
 
 export function localizationMiddleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const pathnameHasLocale = i18n.locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
 
   // // `/_next/` and `/api/` are ignored by the watcher, but we need to
   // ignore files in `public` manually.
   if (
-    pathnameHasLocale ||
+    pathnameHasLocale(pathname) ||
     [
       '/manifest.json',
       '/favicon.ico',
