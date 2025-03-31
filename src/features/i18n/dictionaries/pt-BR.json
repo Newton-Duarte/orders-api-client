@@ -12,6 +12,11 @@
     "dark": "Escuro",
     "system": "Sistema"
   },
+  "user-profile-menu": {
+    "title": "Menu de Usuário",
+    "profile": "Perfil",
+    "sign-out": "Sair"
+  },
   "auth": {
     "common": {
       "full-name": "Nome Completo",

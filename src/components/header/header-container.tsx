@@ -7,7 +7,7 @@ import { getDictionary } from '@/features/i18n/get-dictionaries'
 
 import { LanguageSwitcher } from '../language-switcher'
 import { ThemeSwitcher } from '../theme-switcher'
-import { UserAvatarMenu } from '../user-avatar-menu'
+import { UserProfileMenu } from '../user-profile-menu'
 
 type HeaderContainerProps = {
   lang: string
@@ -49,7 +49,7 @@ export default function HeaderContainer({
         <div className="flex gap-4">
           <LanguageSwitcher currentLocale={lang} dictionary={dictionary} />
           <ThemeSwitcher dictionary={dictionary} />
-          <UserAvatarMenu user={user} />
+          <UserProfileMenu user={user} dictionary={dictionary} />
         </div>
       </div>
     </header>

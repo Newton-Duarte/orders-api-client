@@ -12,6 +12,11 @@
     "dark": "Dark",
     "system": "System"
   },
+  "user-profile-menu": {
+    "title": "User Menu",
+    "profile": "Profile",
+    "sign-out": "Sign Out"
+  },
   "auth": {
     "common": {
       "full-name": "Full Name",
