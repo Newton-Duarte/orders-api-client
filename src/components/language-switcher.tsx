@@ -41,9 +41,9 @@ export function LanguageSwitcher({
           {languageNames[currentLocale]}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      <DropdownMenuContent>
         <DropdownMenuLabel>
-          {dictionary['language-switcher']['select-language']}
+          {dictionary['language-switcher']['language-label']}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {i18n.locales.map((locale) => (
