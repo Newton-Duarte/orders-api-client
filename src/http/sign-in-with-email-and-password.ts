@@ -12,7 +12,7 @@ export async function signInWithEmailAndPassword({
   email,
   password,
 }: SignInWithEmailAndPasswordRequest) {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   const result = { token: 'Sign In -> Sucesso' }
 
   // const result = await api

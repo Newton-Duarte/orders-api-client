@@ -10,7 +10,7 @@ interface SignUpResponse {
 }
 
 export async function signUp({ name, email, password }: SignUpRequest) {
-  await new Promise((resolve) => setTimeout(resolve, 2000))
+  await new Promise((resolve) => setTimeout(resolve, 1000))
   const result = { token: 'qweqwe213213123aczxcaseq3414' }
 
   // const result = await api
