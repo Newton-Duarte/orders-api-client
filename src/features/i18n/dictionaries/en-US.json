@@ -3,7 +3,14 @@
     "app-name": "Java Shopping"
   },
   "language-switcher": {
-    "select-language": "Select Language"
+    "language-label": "Language"
+  },
+  "theme-switcher": {
+    "theme-label": "Theme",
+    "toggle-theme": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   },
   "auth": {
     "common": {
