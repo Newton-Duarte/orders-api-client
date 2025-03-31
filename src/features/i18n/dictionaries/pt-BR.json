@@ -2,6 +2,9 @@
   "header": {
     "app-name": "Java Shopping"
   },
+  "language-switcher": {
+    "select-language": "Selecione o Idioma"
+  },
   "auth": {
     "common": {
       "full-name": "Nome Completo",
