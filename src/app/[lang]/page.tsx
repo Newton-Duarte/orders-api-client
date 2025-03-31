@@ -15,7 +15,7 @@ export default async function Home({
 
   return (
     <>
-      <Header lang={lang} dictionary={dict.header} />
+      <Header lang={lang} dictionary={dict} user={user} />
       <main className="container mx-auto h-[calc(100vh-164px)] bg-background">
         <h1>{dict.landing.welcome}</h1>
         <pre>{JSON.stringify(user, null, 2)}</pre>

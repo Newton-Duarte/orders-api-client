@@ -3,12 +3,18 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
+import { getDictionary } from '@/features/i18n/get-dictionaries'
+
+import { LanguageSwitcher } from '../language-switcher'
+import { ThemeSwitcher } from '../theme-switcher'
+
 type NavbarProps = {
   lang: string
-  dictionary: {}
+  dictionary: Awaited<ReturnType<typeof getDictionary>>['header']
+  user: User
 }
 
-export function Header({ lang }: NavbarProps) {
+export function Header({ lang, user, dictionary }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -36,6 +42,10 @@ export function Header({ lang }: NavbarProps) {
         >
           Orders Client
         </Link>
+        <div className="flex gap-4">
+          <LanguageSwitcher currentLocale={lang} dictionary={dictionary} />
+          <ThemeSwitcher dictionary={dictionary} />
+        </div>
       </div>
     </header>
   )
