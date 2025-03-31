@@ -43,8 +43,6 @@ export async function signUpAction(
 
   const { name, email, password } = result.data
 
-  await new Promise((resolve) => setTimeout(resolve, 2000))
-
   try {
     const { token } = await signUp({
       name,
