@@ -23,7 +23,7 @@ type UserProfileMenuProps = {
 }
 
 export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
-  const { currentLocaleOrDefault } = useLocaleUtils()
+  const { currentLocaleOrDefault, localizeRoute } = useLocaleUtils()
 
   return (
     <DropdownMenu>
@@ -42,7 +42,7 @@ export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href={`${currentLocaleOrDefault}/user-profile`}>
+          <Link href={localizeRoute('/user-profile')}>
             <User className="size-4" />
             <p>{dictionary['user-profile-menu'].profile}</p>
           </Link>
