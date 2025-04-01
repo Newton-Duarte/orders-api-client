@@ -41,7 +41,7 @@ export default function HeaderContainer({
     >
       <div className="container flex h-16 items-center justify-between">
         <Link
-          href={`/${lang}`}
+          href="/"
           className="text-xl font-bold tracking-tight transition-colors hover:text-primary"
         >
           Orders Client

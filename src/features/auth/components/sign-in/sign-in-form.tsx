@@ -2,6 +2,7 @@
 
 import { AlertTriangle, Loader2, LogIn } from 'lucide-react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { signInAction } from '@/app/[lang]/auth/sign-in/actions'
 import { FieldError } from '@/components/common/form/field-error'
@@ -11,19 +12,16 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 import { useCustomFormState } from '@/hooks/use-custom-form-state'
-import { useLocaleUtils } from '@/hooks/use-locale-utils'
 
 type SignInFormProps = {
   dictionary: Awaited<ReturnType<typeof getDictionary>>['auth']
 }
 
 export function SignInForm({ dictionary }: SignInFormProps) {
-  const { currentLocaleOrDefault, navigateWithLocale } = useLocaleUtils()
+  const router = useRouter()
 
   const [{ success, message, errors }, handleSubmit, isPending] =
-    useCustomFormState(signInAction, () => {
-      navigateWithLocale('/')
-    })
+    useCustomFormState(signInAction, () => router.push('/'))
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -75,10 +73,7 @@ export function SignInForm({ dictionary }: SignInFormProps) {
           <p className="text-muted-foreground">
             {dictionary.auth['sign-in']['sign-up-cta']}
           </p>
-          <Link
-            href={`/${currentLocaleOrDefault}/auth/sign-up`}
-            className="text-primary hover:underline"
-          >
+          <Link href="/auth/sign-up" className="text-primary hover:underline">
             {dictionary.auth.common['sign-up']}
           </Link>
         </div>

@@ -4,7 +4,6 @@ import { LogOut, User } from 'lucide-react'
 import Link from 'next/link'
 
 import { getDictionary } from '@/features/i18n/get-dictionaries'
-import { useLocaleUtils } from '@/hooks/use-locale-utils'
 import { getInitials } from '@/utils/get-initials'
 
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
@@ -23,8 +22,6 @@ type UserProfileMenuProps = {
 }
 
 export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
-  const { currentLocaleOrDefault, localizeRoute } = useLocaleUtils()
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger className="cursor-pointer">
@@ -42,16 +39,13 @@ export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <Link href={localizeRoute('/user-profile')}>
+          <Link href="/user-profile">
             <User className="size-4" />
             <p>{dictionary['user-profile-menu'].profile}</p>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link
-            href={`/api/auth/sign-out?locale=${currentLocaleOrDefault}`}
-            prefetch={false}
-          >
+          <Link href="/api/auth/sign-out" prefetch={false}>
             <LogOut className="size-4 text-destructive dark:text-red-400" />
             <p className="text-destructive dark:text-red-400">
               {dictionary['user-profile-menu']['sign-out']}
