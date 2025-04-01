@@ -1,5 +1,4 @@
-'use client'
-
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { LogOut, User } from 'lucide-react'
 import Link from 'next/link'
 
@@ -45,12 +44,12 @@ export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/api/auth/sign-out" prefetch={false}>
+          <a href="/api/auth/sign-out">
             <LogOut className="size-4 text-destructive dark:text-red-400" />
             <p className="text-destructive dark:text-red-400">
               {dictionary['user-profile-menu']['sign-out']}
             </p>
-          </Link>
+          </a>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
