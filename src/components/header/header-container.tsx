@@ -47,7 +47,7 @@ export default function HeaderContainer({
             href="/"
             className="text-xl font-bold tracking-tight transition-colors hover:text-primary"
           >
-            Orders Client
+            {dictionary['app-name']}
           </Link>
         </div>
         <div className="flex gap-4">
