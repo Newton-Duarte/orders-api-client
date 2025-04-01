@@ -16,7 +16,7 @@ export default async function AppLayout({
   const { lang } = await params
   const dict = await getDictionary(lang)
 
-  if (!isAuthenticated()) {
+  if (!(await isAuthenticated())) {
     redirect('/auth/sign-in')
   }
 
