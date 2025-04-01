@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react'
 import { DynamicIcon } from 'lucide-react/dynamic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 
@@ -22,6 +23,8 @@ export function Sidebar({
 }: {
   dictionary: Awaited<ReturnType<typeof getDictionary>>['sidebar']
 }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   const pathname = usePathname()
   const pathnameWithoutLocale = pathname.replace(/^\/(en-US|pt-BR)/, '') || '/'
 
@@ -53,8 +56,14 @@ export function Sidebar({
     },
   ]
 
+  useEffect(() => {
+    setIsOpen(false)
+
+    return () => setIsOpen(false)
+  }, [pathname])
+
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <Button variant="ghost" size="icon">
           <Menu className="size-4" />
