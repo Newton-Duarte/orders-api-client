@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 
 import { LanguageSwitcher } from '../language-switcher'
+import { Sidebar } from '../sidebar'
 import { ThemeSwitcher } from '../theme-switcher'
 import { UserProfileMenu } from '../user-profile-menu'
 
@@ -40,12 +41,15 @@ export default function HeaderContainer({
       }`}
     >
       <div className="container flex h-16 items-center justify-between">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight transition-colors hover:text-primary"
-        >
-          Orders Client
-        </Link>
+        <div className="flex items-center gap-4">
+          <Sidebar dictionary={dictionary} />
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-tight transition-colors hover:text-primary"
+          >
+            Orders Client
+          </Link>
+        </div>
         <div className="flex gap-4">
           <LanguageSwitcher currentLocale={lang} dictionary={dictionary} />
           <ThemeSwitcher dictionary={dictionary} />

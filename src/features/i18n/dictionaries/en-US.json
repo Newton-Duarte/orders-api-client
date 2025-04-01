@@ -1,7 +1,5 @@
 {
-  "header": {
-    "app-name": "Java Shopping"
-  },
+  "app-name": "Java Shopping",
   "language-switcher": {
     "language-label": "Language"
   },
@@ -11,6 +9,15 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "sidebar": {
+    "home": "Home",
+    "users": "Users",
+    "products": "Products",
+    "customers": "Customers",
+    "orders": "Orders",
+    "toggle-menu": "Toggle menu",
+    "menu-Navigation": "Menu navigation"
   },
   "user-profile-menu": {
     "title": "User Menu",

@@ -1,16 +1,23 @@
 {
-  "header": {
-    "app-name": "Java Shopping"
-  },
+  "app-name": "Java Shopping",
   "language-switcher": {
     "language-label": "Idioma"
   },
   "theme-switcher": {
     "theme-label": "Tema",
-    "toggle-theme": "Alterar tema",
+    "toggle-theme": "Alternar tema",
     "light": "Claro",
     "dark": "Escuro",
     "system": "Sistema"
+  },
+  "sidebar": {
+    "home": "Início",
+    "users": "Usuários",
+    "products": "Produtos",
+    "customers": "Clientes",
+    "orders": "Vendas",
+    "toggle-menu": "Alternar menu",
+    "menu-Navigation": "Navegação do menu"
   },
   "user-profile-menu": {
     "title": "Menu de Usuário",
