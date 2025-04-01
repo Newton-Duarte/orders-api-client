@@ -1,10 +1,12 @@
 'use client'
 
+import { setCookie } from 'cookies-next'
 import { Globe } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 
 import { getDictionary } from '@/features/i18n/get-dictionaries'
-import { i18n, languageNames } from '@/features/i18n/i18n-config'
+import { i18n } from '@/features/i18n/i18n-config'
+import { languageNames } from '@/features/i18n/i18n-utils'
 
 import { Button } from './ui/button'
 import {
@@ -29,6 +31,12 @@ export function LanguageSwitcher({
   const pathname = usePathname()
 
   const handleChangeLanguage = (locale: string) => {
+    setCookie('NEXT_LOCALE', locale, {
+      path: '/',
+      sameSite: 'strict',
+      maxAge: 31_536_000,
+    })
+
     const pathWithoutLocale = pathname.replace(/^\/(en-US|pt-BR)/, '') || '/'
     router.push(`/${locale}${pathWithoutLocale}`)
   }
