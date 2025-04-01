@@ -1,0 +1,1 @@
+export const NEXT_LOCALE_KEY = 'NEXT_LOCALE'

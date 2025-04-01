@@ -4,6 +4,7 @@ import { setCookie } from 'cookies-next'
 import { Globe } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 
+import { NEXT_LOCALE_KEY } from '@/features/i18n/constants'
 import { getDictionary } from '@/features/i18n/get-dictionaries'
 import { i18n } from '@/features/i18n/i18n-config'
 import { languageNames } from '@/features/i18n/i18n-utils'
@@ -31,7 +32,7 @@ export function LanguageSwitcher({
   const pathname = usePathname()
 
   const handleChangeLanguage = (locale: string) => {
-    setCookie('NEXT_LOCALE', locale, {
+    setCookie(NEXT_LOCALE_KEY, locale, {
       path: '/',
       sameSite: 'strict',
       maxAge: 31_536_000,

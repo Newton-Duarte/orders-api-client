@@ -2,6 +2,7 @@ import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
 import { type NextRequest, NextResponse } from 'next/server'
 
+import { NEXT_LOCALE_KEY } from './constants'
 import { i18n } from './i18n-config'
 import { pathnameHasLocale } from './i18n-utils'
 
@@ -14,7 +15,7 @@ function getLocaleFromAcceptLanguage(request: NextRequest) {
 }
 
 function getLocaleFromCookies(request: NextRequest): string | undefined {
-  const locale = request.cookies.get('NEXT_LOCALE')?.value
+  const locale = request.cookies.get(NEXT_LOCALE_KEY)?.value
   return locale && i18n.locales.includes(locale) ? locale : undefined
 }
 
@@ -48,8 +49,8 @@ export function localizationMiddleware(request: NextRequest) {
   const response = NextResponse.redirect(request.nextUrl)
 
   // Set the NEXT_LOCALE cookie if it wasn't already set
-  if (!request.cookies.has('NEXT_LOCALE')) {
-    response.cookies.set('NEXT_LOCALE', locale, {
+  if (!request.cookies.has(NEXT_LOCALE_KEY)) {
+    response.cookies.set(NEXT_LOCALE_KEY, locale, {
       path: '/',
       sameSite: 'strict',
       maxAge: 31_536_000, // 1 year
