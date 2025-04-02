@@ -34,7 +34,8 @@ export function UserProfileMenu({ user, dictionary }: UserProfileMenuProps) {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuLabel>
-          {dictionary['user-profile-menu']['title']}
+          <p className="text-sm">{user.name}</p>
+          <p className="text-sm text-muted-foreground">{user.email}</p>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
