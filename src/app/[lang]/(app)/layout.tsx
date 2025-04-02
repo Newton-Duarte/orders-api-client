@@ -24,7 +24,6 @@ export default async function AppLayout({
     <>
       <Header lang={lang} />
       <main className="container mx-auto h-[calc(100vh-164px)]">
-        <h1>{dict.landing.welcome}</h1>
         {children}
       </main>
       <Footer dictionary={dict.footer} />
