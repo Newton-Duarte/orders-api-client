@@ -11,7 +11,7 @@
     "system": "System"
   },
   "sidebar": {
-    "home": "Home",
+    "dashboard": "Dashboard",
     "users": "Users",
     "products": "Products",
     "customers": "Customers",
@@ -55,6 +55,30 @@
   },
   "landing": {
     "welcome": "Welcome"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Overview of your business"
+  },
+  "users": {
+    "title": "Users",
+    "description": "Manage your users",
+    "add-user": "Add User"
+  },
+  "products": {
+    "title": "Products",
+    "description": "Manage your product catalog",
+    "add-product": "Add Product"
+  },
+  "customers": {
+    "title": "Customers",
+    "description": "Manage your customers",
+    "add-customer": "Add Customer"
+  },
+  "orders": {
+    "title": "Orders",
+    "description": "Manage your orders",
+    "add-order": "Add Order"
   },
   "footer": {
     "copyright": "Newton Duarte. All rights reserved.",

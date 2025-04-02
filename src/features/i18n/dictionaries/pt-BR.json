@@ -11,7 +11,7 @@
     "system": "Sistema"
   },
   "sidebar": {
-    "home": "Início",
+    "dashboard": "Painel",
     "users": "Usuários",
     "products": "Produtos",
     "customers": "Clientes",
@@ -55,6 +55,30 @@
   },
   "landing": {
     "welcome": "Bem vindo!"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "description": "Visão geral do seu negócio"
+  },
+  "users": {
+    "title": "Usuários",
+    "description": "Gerencie seus usuários",
+    "add-user": "Criar usuário"
+  },
+  "products": {
+    "title": "Produtos",
+    "description": "Gerencie seu catálogo de produtos",
+    "add-product": "Criar produto"
+  },
+  "customers": {
+    "title": "Clientes",
+    "description": "Gerencie seus clientes",
+    "add-customer": "Criar cliente"
+  },
+  "orders": {
+    "title": "Vendas",
+    "description": "Gerencie suas vendas",
+    "add-order": "Criar venda"
   },
   "footer": {
     "copyright": "Newton Duarte. Todos os direitos reservados.",
