@@ -31,8 +31,8 @@ export function Sidebar({
   const navLinks = [
     {
       href: '/',
-      label: dictionary.sidebar.home,
-      icon: 'home' as const,
+      label: dictionary.sidebar.dashboard,
+      icon: 'layout-dashboard' as const,
     },
     {
       href: '/users',
@@ -85,18 +85,17 @@ export function Sidebar({
           {navLinks.map((link) => {
             const isLinkActive = pathnameWithoutLocale === link.href
             return (
-              <div key={link.href} className="flex items-center gap-4">
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-3 rounded p-3 text-sm transition-all hover:bg-primary-foreground hover:text-primary ${isLinkActive ? 'bg-primary-foreground font-bold text-primary' : ''}`}
+              >
                 <DynamicIcon
                   name={link.icon}
                   className={`size-4 ${isLinkActive ? 'text-primary' : ''}`}
                 />
-                <Link
-                  href={link.href}
-                  className={`text-sm transition-all hover:text-primary hover:underline ${isLinkActive ? 'font-bold text-primary' : ''}`}
-                >
-                  {link.label}
-                </Link>
-              </div>
+                {link.label}
+              </Link>
             )
           })}
         </div>
